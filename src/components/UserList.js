@@ -5,7 +5,7 @@ export const UserList = () => {
   const [userData, setUserData] = useState(null)
 
   const fetchUserData = async () => {
-    const resp = await axios.get("/getUsers")
+    const resp = await axios.get("https://crud-app-backend-2.onrender.com/getUsers")
     console.log(resp);
 
     // if no users are there please dont set the values
@@ -27,7 +27,7 @@ export const UserList = () => {
     if (!userName || !userEmail){
       alert("Please enter name and email both")
     }else {
-      const resp = await axios.put(`/editUser/${user._id}`, {
+      const resp = await axios.put(`https://crud-app-backend-2.onrender.com/editUser/${user._id}`, {
         name: userName,
         email: userEmail
       })
@@ -38,7 +38,7 @@ export const UserList = () => {
   // Delete
 
   const handleDelete = async (userId) => {
-    const resp = await axios.delete(`/deleteUser/${userId}`)
+    const resp = await axios.delete(`https://crud-app-backend-2.onrender.com/deleteUser/${userId}`)
     console.log(resp);
   }
 
